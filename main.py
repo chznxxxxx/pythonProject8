@@ -1,55 +1,29 @@
-import random
+result = []
 
-class cat:
-    def __init__(self, name):
-        self.name = name
-        self.gladness = 50
-        self.progress = 0
-        self.alive = True
+def divider(a, b):
 
-    def to_eat(self):
-        print('Time to eat')
-        self.progress += 0.9
-        self.gladness -= 15
+   if a < b:
 
-    def to_sleep(self):
-        print('Time to sleep')
-        self.gladness += 10
+       raise ValueError
 
-    def to_meow(self):
-        print('meow time')
-        self.gladness += 15
-        self.progress -= 0.9
+   if b > 100:
 
-    def is_alive(self):
-        if self.progress < -0.7:
-            print('Catst out..')
-            self.alive = False
-        elif self.gladness <= 0:
-            print('Catession..')
-            self.alive = False
-        elif self.progress > 5:
-            print('Cated externally...')
-            self.alive = False
+       raise IndexError
 
-    def end_of_day(self):
-        print(f'Gladness = {self .gladness}')
-        print(f'Progress = {round(self.progress, 2)}')
+   return a/b
 
-    def live(self, day):
-        day ="Day " + str(day) + "of " + self.name + " life"
-        print(f"{day:=^50}")
-        live_cube = random.randint(1, 3)
-        if live_cube == 1:
-            self.to_eat()
-        elif live_cube == 2:
-            self.to_sleep()
-        elif live_cube == 3:
-            self.to_meow()
-        self.end_of_day()
-        self.is_alive()
-Elia = cat(name='Elia')
-for day in range(365):
-    if Elia.alive == False:
-        break
-    Elia.live(day)
+data = {10: 2, 2: 5, "123": 4, 18: 0,  []:15, 8 : 4}
+
+for key in data:
+
+   try:
+
+       res = divider(key, data[key])
+
+       result.append(res)
+
+   except Exception as err:
+
+       print(type(err))
+
+print(result)
